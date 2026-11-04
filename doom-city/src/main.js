@@ -1,0 +1,3 @@
+import {GameScene} from "./scenes/GameScene.js";
+/** Inicializa Phaser com adaptação à tela e coleta de erros para testes. */
+window.cityErrors=[];addEventListener("error",e=>window.cityErrors.push(String(e.message)));addEventListener("unhandledrejection",e=>window.cityErrors.push(String(e.reason)));if(typeof Phaser==="undefined"){document.getElementById("loading").textContent="Engine indisponível. Confira sua conexão e atualize."}else{window.cityPhaser=new Phaser.Game({type:Phaser.AUTO,parent:"game",width:innerWidth,height:innerHeight,backgroundColor:"#17292d",render:{antialias:true,roundPixels:false,pixelArt:false},scale:{mode:Phaser.Scale.RESIZE,autoCenter:Phaser.Scale.CENTER_BOTH},input:{activePointers:4},audio:{noAudio:true},scene:[GameScene]})}
