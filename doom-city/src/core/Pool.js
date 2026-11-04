@@ -1,0 +1,2 @@
+/** Pool fixo: não cria entidades quando o orçamento já foi usado. */
+export class Pool{constructor(size,factory){this.items=Array.from({length:size},(_,i)=>factory(i));this.misses=0}acquire(){for(let i=0;i<this.items.length;i++)if(!this.items[i].active){this.items[i].active=true;return this.items[i]}this.misses++;return null}reset(){for(const o of this.items){o.active=false;if(o.sprite)o.sprite.setVisible(false)}}}
